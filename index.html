@@ -50,42 +50,36 @@
     <h1>Puzzle Challenge</h1>
     
     <div class="puzzle-box" id="step1">
-        <p>Unscramble the word: <strong>RETUPMOC</strong></p>
+        <p>Unscramble the name: <strong>CEILNU</strong></p>
         <input type="text" id="wordAnswer" placeholder="Your answer here">
         <button onclick="checkWord()">Submit</button>
     </div>
     
     <div class="puzzle-box hidden" id="step2">
-        <p>Decode this: <strong>Uryyb Jbeyq</strong> (ROT13 Cipher)</p>
-        <input type="text" id="cipherAnswer" placeholder="Your answer here">
-        <button onclick="checkCipher()">Submit</button>
+        <p>Decode this: <strong>Cvax Cbabl</strong> (ROT13 Cipher)</p>
+        <input type="text" id="encryptedAnswer" placeholder="Your answer here">
+        <button onclick="checkEncrypted()">Submit</button>
     </div>
     
     <div class="puzzle-box hidden" id="step3">
-        <p>Decode this: <strong>01001000 01100101 01101100 01101100 01101111</strong> (Binary Code)</p>
+        <p>Decode this: <strong>N qentba jvgubhg vgf evqre vf n gentrql.</strong> (ROT13 Cipher)</p>
+        <input type="text" id="dragonAnswer" placeholder="Your answer here">
+        <button onclick="checkDragon()">Submit</button>
+    </div>
+    
+    <div class="puzzle-box hidden" id="step4">
+        <p>Decode this: <strong>01110000 01100001 01110111 01100001 01110111 01101001 01101110 01100001</strong> (Binary Code)</p>
         <input type="text" id="binaryAnswer" placeholder="Your answer here">
         <button onclick="checkBinary()">Submit</button>
     </div>
     
-    <div class="puzzle-box hidden" id="step4">
-        <p>Decode this: <strong>KHOOR ZRUOG</strong> (Caesar Cipher +3)</p>
-        <input type="text" id="caesarAnswer" placeholder="Your answer here">
-        <button onclick="checkCaesar()">Submit</button>
-    </div>
-    
     <div class="puzzle-box hidden" id="step5">
-        <p>Decode this: <strong>QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD</strong> (Caesar Cipher -3)</p>
-        <input type="text" id="caesarAnswer2" placeholder="Your answer here">
-        <button onclick="checkCaesar2()">Submit</button>
+        <p>Solve the math problem: <br> <code>(12 / 4 + 3) * 8 - 10</code></p>
+        <input type="text" id="mathAnswer" placeholder="Your answer here">
+        <button onclick="checkMath()">Submit</button>
     </div>
     
     <div class="puzzle-box hidden" id="step6">
-        <p>What will this code output? <br> <code>print(2 ** 3 * 2)</code></p>
-        <input type="text" id="pythonAnswer" placeholder="Your answer here">
-        <button onclick="checkPython()">Submit</button>
-    </div>
-    
-    <div class="puzzle-box hidden" id="step7">
         <p>Will you be my Valentine? ❤️</p>
         <div style="display: flex; justify-content: center; gap: 10px;">
             <button onclick="valentineAnswer(true)">Yes</button>
@@ -95,19 +89,18 @@
     
     <div id="message" class="hidden">
         <h2 id="finalMessage"></h2>
-        <button onclick="goBack()">Go Back</button>
+        <button onclick="restartGame()">Play Again</button>
     </div>
     
     <script>
-        function checkWord() { if (document.getElementById("wordAnswer").value.trim().toLowerCase() === "computer") { nextStep(1, 2); } else { alert("Try again!"); } }
-        function checkCipher() { if (document.getElementById("cipherAnswer").value.trim().toLowerCase() === "hello world") { nextStep(2, 3); } else { alert("Try again!"); } }
-        function checkBinary() { if (document.getElementById("binaryAnswer").value.trim().toLowerCase() === "hello") { nextStep(3, 4); } else { alert("Try again!"); } }
-        function checkCaesar() { if (document.getElementById("caesarAnswer").value.trim().toLowerCase() === "hello world") { nextStep(4, 5); } else { alert("Try again!"); } }
-        function checkCaesar2() { if (document.getElementById("caesarAnswer2").value.trim().toLowerCase() === "the quick brown fox jumps over the lazy dog") { nextStep(5, 6); } else { alert("Try again!"); } }
-        function checkPython() { if (document.getElementById("pythonAnswer").value.trim() === "16") { nextStep(6, 7); } else { alert("Try again!"); } }
-        function valentineAnswer(choice) { document.getElementById("step7").classList.add("hidden"); document.getElementById("message").classList.remove("hidden"); document.getElementById("finalMessage").textContent = choice ? "Yaay! Friday evening is booked" : "OH NOO, MY SHALYAAA."; }
-        function goBack() { document.getElementById("message").classList.add("hidden"); document.getElementById("step7").classList.remove("hidden"); }
+        function checkWord() { if (document.getElementById("wordAnswer").value.trim().toLowerCase() === "lucien") { nextStep(1, 2); } else { alert("Try again!"); } }
+        function checkEncrypted() { if (document.getElementById("encryptedAnswer").value.trim().toLowerCase() === "pink pony") { nextStep(2, 3); } else { alert("Try again!"); } }
+        function checkDragon() { if (document.getElementById("dragonAnswer").value.trim().toLowerCase() === "a dragon without its rider is a tragedy") { nextStep(3, 4); } else { alert("Try again!"); } }
+        function checkBinary() { if (document.getElementById("binaryAnswer").value.trim().toLowerCase() === "pawawina") { nextStep(4, 5); } else { alert("Try again!"); } }
+        function checkMath() { if (document.getElementById("mathAnswer").value.trim() === "38") { nextStep(5, 6); } else { alert("Try again!"); } }
+        function valentineAnswer(choice) { document.getElementById("step6").classList.add("hidden"); document.getElementById("message").classList.remove("hidden"); document.getElementById("finalMessage").textContent = choice ? "Yaay! Friday evening is booked" : "OH NOO, MY SHALYAAA."; }
         function nextStep(current, next) { document.getElementById("step" + current).classList.add("hidden"); document.getElementById("step" + next).classList.remove("hidden"); }
+        function restartGame() { document.getElementById("message").classList.add("hidden"); document.getElementById("step1").classList.remove("hidden"); }
     </script>
 </body>
 </html>

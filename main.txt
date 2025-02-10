@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Puzzle</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+        }
+        .hidden {
+            display: none;
+        }
+        .puzzle-box {
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+            display: inline-block;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Can You Solve This Valentine's Puzzle?</h1>
+    <div class="puzzle-box" id="puzzle">
+        <p>Unscramble the letters to form a special word: <strong>OEVL</strong></p>
+        <input type="text" id="answer" placeholder="Your answer here">
+        <button onclick="checkAnswer()">Submit</button>
+    </div>
+    <div id="message" class="hidden">
+        <h2❤️ Will you be my Valentine? ❤️</h2>
+    </div>
+    <script>
+        function checkAnswer() {
+            let answer = document.getElementById("answer").value.toLowerCase();
+            if (answer === "love") {
+                document.getElementById("puzzle").style.display = "none";
+                document.getElementById("message").classList.remove("hidden");
+            } else {
+                alert("Try again! Hint: It's something romantic.");
+            }
+        }
+    </script>
+</body>
+</html>
